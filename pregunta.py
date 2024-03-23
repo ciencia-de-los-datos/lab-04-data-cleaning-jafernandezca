@@ -78,6 +78,8 @@ def clean_data():
     df_copia['línea_credito'] = df_copia['línea_credito'].str.replace('_', ' ')
     df_copia['línea_credito'] = df_copia['línea_credito'].str.replace(' ', '') 
     
+    df_copia1 = df_copia.drop(columns=['Unnamed: 0'])
+    df_copia1 = df_copia1.dropna(how='all')
+    df_copia1 = df_copia1.drop_duplicates()
     
-    
-    return df_copia
+    return df_copia1
